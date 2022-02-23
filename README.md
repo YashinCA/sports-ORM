@@ -1,5 +1,7 @@
-Página de demostración: [DEMO LINK](https://sportsorm.herokuapp.com/)
+Página de demostración: [DEMO LINK](https://sportsorm.herokuapp.com/) 💻🐍
 
+#####################################################################################################
+#####################################################################################################
 
 ###Clone this repo for the CodingDojo Sports ORM assignments in the Django Level 2 curriculum.
 
