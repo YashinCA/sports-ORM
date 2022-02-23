@@ -9,23 +9,23 @@ def index(request):
     context = {
         "leagues": League.objects.all(),
         # ... todas las ligas de béisbol
-        "leaguesBaseball": League.objects.filter(name__contains="baseball"),
+        "leaguesBaseball": League.objects.filter(sport="Baseball"),
         # ... todas las ligas de mujeres
-        "leaguesWomens": League.objects.filter(name__contains="women"),
+        "leaguesWomens": League.objects.filter(name__contains="Womens'"),
         # ... todas las ligas donde el deporte es cualquier tipo de hockey
-        "leaguesHockey": League.objects.filter(name__contains="hocke"),
+        "leaguesHockey": League.objects.filter(name__contains="Hockey"),
         # ... todas las ligas donde el deporte no sea football
-        "leaguesExclFootball": League.objects.exclude(Q(name__contains="footb") | Q(name__contains="Soccer")),
+        "leaguesExclFootball": League.objects.exclude(Q(name__contains="Football") | Q(name__contains="Soccer")),
         # ... todas las ligas que se llaman "conferencias"
-        "leaguesConference": League.objects.filter(name__contains="conferen"),
+        "leaguesConference": League.objects.filter(name__contains="Conference"),
         # ... todas las ligas de la región atlántica
-        "leaguesAtlantic": League.objects.filter(name__contains="atlantic"),
+        "leaguesAtlantic": League.objects.filter(name__contains="Atlantic"),
         # ... todos los equipos con sede en Dallas
-        "locationDallas": Team.objects.filter(location__contains="dallas"),
+        "locationDallas": Team.objects.filter(location__contains="Dallas"),
         # ... todos los equipos nombraron los Raptors
-        "raptorTeams": Team.objects.filter(team_name__contains="rapt"),
+        "raptorTeams": Team.objects.filter(team_name__contains="Raptors"),
         # ... todos los equipos cuya ubicación incluye "Ciudad"
-        "locationCity": Team.objects.filter(location__contains="city"),
+        "locationCity": Team.objects.filter(location__contains="City"),
         # ... todos los equipos cuyos nombres comienzan con "T"
         "startWithT": Team.objects.filter(team_name__startswith="T"),
         # ... todos los equipos, ordenados alfabéticamente por ubicación
@@ -79,9 +79,10 @@ def index(request):
     return render(request, "leagues/index.html", context)
 
 
-def make_data(request):
-    team_maker.gen_leagues(10)
-    team_maker.gen_teams(50)
-    team_maker.gen_players(200)
-
-    return redirect("index")
+def data_base(request):
+    context = {
+        "leagues": League.objects.all(),
+        "teams": Team.objects.all(),
+        "players": Player.objects.all(),
+    }
+    return render(request, "leagues/total.html", context)

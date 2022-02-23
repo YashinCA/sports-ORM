@@ -2,8 +2,8 @@ from django.db import models
 
 
 class League(models.Model):
-    name = models.CharField(max_length=50)
-    sport = models.CharField(max_length=15)
+    name = models.CharField(max_length=200)
+    sport = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # teams=lista de equipos de la liga
@@ -13,8 +13,8 @@ class League(models.Model):
 
 
 class Team(models.Model):
-    location = models.CharField(max_length=50)
-    team_name = models.CharField(max_length=50)
+    location = models.CharField(max_length=200)
+    team_name = models.CharField(max_length=200)
     league = models.ForeignKey(
         League, related_name="teams", on_delete=models.CASCADE)
     # curr_players=lista de jugadores actuales en el equipo
@@ -26,8 +26,8 @@ def __str__(self):
 
 
 class Player(models.Model):
-    first_name = models.CharField(max_length=15)
-    last_name = models.CharField(max_length=15)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
     curr_team = models.ForeignKey(
         Team, related_name="curr_players", on_delete=models.CASCADE)
     all_teams = models.ManyToManyField(Team, related_name="all_players")

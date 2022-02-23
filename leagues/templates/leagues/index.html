@@ -5,12 +5,15 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	</head>
 	<body>
-		<div class="col-9">
+		
+		<div class=" m-3 col-9">
+			<h3 class="d-inline-block m-3">Todos los Filtros</h3>
+			<a class="btn btn-primary mb-3 d-inline-flex" href="/database">Base de Datos Completa</a>
 			<div class="accordion accordion-flush" id="accordionFlushExample">
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingOne">
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-							<strong>1. Todas las ligas de béisbol </strong> | League.objects.filter(name__contains="baseball")
+							<p><strong>1. Todas las ligas de béisbol </strong> | League.objects.filter(sport="Baseball")</p>
 						</button>
 					</h2>
 					<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -26,7 +29,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingTwo">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-						<strong>2. Todas las ligas de mujeres </strong> | League.objects.filter(name__contains="women")
+						<p><strong>2. Todas las ligas de mujeres </strong> | League.objects.filter(name__contains="Womens'")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
@@ -42,7 +45,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingThree">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-						<strong>3. Todas las ligas donde el deporte es cualquier tipo de hockey</strong> | League.objects.filter(name__contains="hocke")
+						<p><strong>3. Todas las ligas donde el deporte es cualquier tipo de hockey</strong> | League.objects.filter(name__contains="Hockey")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
@@ -58,7 +61,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingf">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsef" aria-expanded="false" aria-controls="flush-collapsef">
-						<strong>4. Todas las ligas donde el deporte no sea football </strong> | League.objects.exclude(Q(name__contains="footb") | Q(name__contains="Soccer"))
+						<p><strong>4. Todas las ligas donde el deporte no sea football </strong> | League.objects.exclude(Q(name__contains="Football") | Q(name__contains="Soccer"))</p>
 					</button>
 					</h2>
 					<div id="flush-collapsef" class="accordion-collapse collapse" aria-labelledby="flush-headingf" data-bs-parent="#accordionFlushExample">
@@ -74,7 +77,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-heading">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse" aria-expanded="false" aria-controls="flush-collapse">
-						<strong>5. Todas las ligas que se llaman "conferencias" </strong> | League.objects.filter(name__contains="conferen")
+						<p><strong>5. Todas las ligas que se llaman "conferencias" </strong> | League.objects.filter(name__contains="Conference")</p>
 					</button>
 					</h2>
 					<div id="flush-collapse" class="accordion-collapse collapse" aria-labelledby="flush-heading" data-bs-parent="#accordionFlushExample">
@@ -90,7 +93,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-heading6">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
-						<strong>6. Todas las ligas de la región atlántica </strong> | League.objects.filter(name__contains="atlantic")
+						<p><strong>6. Todas las ligas de la región atlántica </strong> | League.objects.filter(name__contains="Atlantic")</p>
 					</button>
 					</h2>
 					<div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
@@ -106,14 +109,14 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingSeven">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapse7">
-						<strong>7. Todos los equipos con sede en Dallas </strong> | Team.objects.filter(location__contains="dallas")
+						<p><strong>7. Todos los equipos con sede en Dallas </strong> | Team.objects.filter(location__contains="Dallas")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
 						<div class="accordion-body">
 							<ul>
 								{%for locDallas in locationDallas %}
-								<li>{{locDallas.id}}. {{locDallas.team_name}}</li>
+								<li>{{locDallas.id}}. {{locDallas.location}} {{locDallas.team_name}}</li>
 								{%endfor%}
 							</ul>
 						</div>
@@ -122,7 +125,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingEight">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
-						<strong>8. Todos los equipos nombraron los Raptors </strong> | Team.objects.filter(team_name__contains="rapt")
+						<p><strong>8. Todos los equipos nombraron los Raptors </strong> | Team.objects.filter(team_name__contains="Raptors")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
@@ -138,7 +141,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingnine">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsenine" aria-expanded="false" aria-controls="flush-collapsenine">
-						<strong>9. Todos los equipos cuya ubicación incluye "Ciudad" </strong> | Team.objects.filter(location__contains="city")
+						<p><strong>9. Todos los equipos cuya ubicación incluye "Ciudad" </strong> | Team.objects.filter(location__contains="City")</p>
 					</button>
 					</h2>
 					<div id="flush-collapsenine" class="accordion-collapse collapse" aria-labelledby="flush-headingnine" data-bs-parent="#accordionFlushExample">
@@ -154,7 +157,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingten">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseten" aria-expanded="false" aria-controls="flush-collapseten">
-						<strong>10. Todos los equipos cuyos nombres comienzan con "T" </strong> | Team.objects.filter(team_name__startswith="T")
+						<p><strong>10. Todos los equipos cuyos nombres comienzan con "T" </strong> | Team.objects.filter(team_name__startswith="T")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseten" class="accordion-collapse collapse" aria-labelledby="flush-headingten" data-bs-parent="#accordionFlushExample">
@@ -170,7 +173,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingeleven">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseeleven" aria-expanded="false" aria-controls="flush-collapseeleven">
-						<strong>11. todos los equipos, ordenados alfabéticamente por ubicación </strong> | Team.objects.all().order_by("location")
+						<p><strong>11. Todos los equipos, ordenados alfabéticamente por ubicación </strong> | Team.objects.all().order_by("location")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseeleven" class="accordion-collapse collapse" aria-labelledby="flush-headingeleven" data-bs-parent="#accordionFlushExample">
@@ -186,7 +189,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingeltwelve">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseeltwelve" aria-expanded="false" aria-controls="flush-collapseeltwelve">
-						<strong>12. Todos los equipos, ordenados por nombre de equipo en orden alfabético inverso </strong> | Team.objects.all().order_by("-team_name")
+						<p><strong>12. Todos los equipos, ordenados por nombre de equipo en orden alfabético inverso </strong> | Team.objects.all().order_by("-team_name")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseeltwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingeltwelve" data-bs-parent="#accordionFlushExample">
@@ -202,7 +205,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingelthirteen">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseelthirteen" aria-expanded="false" aria-controls="flush-collapseelthirteen">
-						<strong>13. Cada jugador con apellido "Cooper" </strong> | Player.objects.filter(last_name="Cooper")
+						<p><strong>13. Cada jugador con apellido "Cooper" </strong> | Player.objects.filter(last_name="Cooper")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseelthirteen" class="accordion-collapse collapse" aria-labelledby="flush-headingelthirteen" data-bs-parent="#accordionFlushExample">
@@ -218,7 +221,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingelfourteen">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseelfourteen" aria-expanded="false" aria-controls="flush-collapseelfourteen">
-						<strong>14. Cada jugador con nombre "Joshua" </strong> | Player.objects.filter(first_name="Joshua")
+						<p><strong>14. Cada jugador con nombre "Joshua" </strong> | Player.objects.filter(first_name="Joshua")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseelfourteen" class="accordion-collapse collapse" aria-labelledby="flush-headingelfourteen" data-bs-parent="#accordionFlushExample">
@@ -234,7 +237,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingelfifteen">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseelfifteen" aria-expanded="false" aria-controls="flush-collapseelfifteen">
-						<strong>15. Todos los jugadores con el apellido "Cooper" EXCEPTO aquellos con "Joshua" como primer nombre </strong> | Player.objects.filter(last_name="Joshua").exclude(first_name="Joshua")
+						<p><strong>15. Todos los jugadores con el apellido "Cooper" EXCEPTO aquellos con "Joshua" como primer nombre</strong> | Player.objects.filter(last_name="Joshua").exclude(first_name="Joshua")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseelfifteen" class="accordion-collapse collapse" aria-labelledby="flush-headingelfifteen" data-bs-parent="#accordionFlushExample">
@@ -250,7 +253,7 @@
 				<div class="accordion-item border">
 					<h2 class="accordion-header" id="flush-headingelsixteen">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseelsixteen" aria-expanded="false" aria-controls="flush-collapseelsixteen">
-						<strong>16. todos los jugadores con nombre "Alexander" O nombre "Wyatt" </strong> | Player.objects.filter(Q(first_name="Alexander") | Q(first_name="Wyatt")).order_by('first_name', "last_name")
+						<p><strong>16. Todos los jugadores con nombre "Alexander" O nombre "Wyatt" </strong> | Player.objects.filter(Q(first_name="Alexander") | Q(first_name="Wyatt")).order_by('first_name', "last_name")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseelsixteen" class="accordion-collapse collapse" aria-labelledby="flush-headingelsixteen" data-bs-parent="#accordionFlushExample">
@@ -266,7 +269,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingelseventeen">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseelseventeen" aria-expanded="false" aria-controls="flush-collapseelseventeen">
-						<strong>17. Todos los equipos en la Atlantic Soccer Conference </strong> | Team.objects.all().filter(league__name="Atlantic Soccer Conference")
+						<p><strong>17. Todos los equipos en la Atlantic Soccer Conference </strong> | Team.objects.all().filter(league__name="Atlantic Soccer Conference")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseelseventeen" class="accordion-collapse collapse" aria-labelledby="flush-headingelseventeen" data-bs-parent="#accordionFlushExample">
@@ -282,7 +285,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingeleighteen">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseeleighteen" aria-expanded="false" aria-controls="flush-collapseeleighteen">
-						<strong>18. Todos los jugadores(actuales) en los Boston Penguins </strong> | Player.objects.all().filter(curr_team__location="Boston", curr_team__team_name="Penguins")
+						<p><strong>18. Todos los jugadores(actuales) en los Boston Penguins </strong> | Player.objects.all().filter(curr_team__location="Boston", curr_team__team_name="Penguins")</p>
 					</button>
 					</h2>
 					<div id="flush-collapseeleighteen" class="accordion-collapse collapse" aria-labelledby="flush-headingeleighteen" data-bs-parent="#accordionFlushExample">
@@ -298,7 +301,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingnineteen">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsenineteen" aria-expanded="false" aria-controls="flush-collapsenineteen">
-						<strong>19. Todos los jugadores(actuales) en la International Collegiate Baseball Conference </strong> | Player.objects.all().filter(curr_team__league__name="International Collegiate Baseball Conference").order_by('id')
+						<p><strong>19. Todos los jugadores(actuales) en la International Collegiate Baseball Conference </strong> | Player.objects.all().filter(curr_team__league__name="International Collegiate Baseball Conference").order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsenineteen" class="accordion-collapse collapse" aria-labelledby="flush-headingnineteen" data-bs-parent="#accordionFlushExample">
@@ -314,7 +317,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwenty">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwenty" aria-expanded="false" aria-controls="flush-collapsetwenty">
-						<strong>20. Todos los jugadores(actuales) en la Conferencia Americana de Fútbol Amateur con el apellido "López" </strong> | Player.objects.all().filter(curr_team__league__name="International Collegiate Baseball Conference")
+						<p><strong>20. Todos los jugadores(actuales) en la Conferencia Americana de Fútbol Amateur con el apellido "López" </strong> | Player.objects.all().filter(curr_team__league__name="International Collegiate Baseball Conference")</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwenty" class="accordion-collapse collapse" aria-labelledby="flush-headingtwenty" data-bs-parent="#accordionFlushExample">
@@ -330,7 +333,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentyone">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentyone" aria-expanded="false" aria-controls="flush-collapsetwentyone">
-						<strong>21. Todos los jugadores de fútbol </strong> | Player.objects.distinct().filter(Q(all_teams__league__sport="Football") | Q(all_teams__league__sport="Soccer")).order_by('id')
+						<p><strong>21. Todos los jugadores de fútbol </strong> | Player.objects.distinct().filter(Q(all_teams__league__sport="Football") | Q(all_teams__league__sport="Soccer")).order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentyone" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentyone" data-bs-parent="#accordionFlushExample">
@@ -346,7 +349,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentytwo">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentytwo" aria-expanded="false" aria-controls="flush-collapsetwentytwo">
-						<strong>22. Todos los equipos con un jugador(actual) llamado "Sophia" </strong> | Team.objects.all().filter(curr_players__first_name="Sophia").order_by('id')
+						<p><strong>22. Todos los equipos con un jugador(actual) llamado "Sophia" </strong> | Team.objects.all().filter(curr_players__first_name="Sophia").order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentytwo" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentytwo" data-bs-parent="#accordionFlushExample">
@@ -362,7 +365,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentythree">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentythree" aria-expanded="false" aria-controls="flush-collapsetwentythree">
-						<strong>23. Todas las ligas con un jugador(actual) llamado "Sophia" </strong> | League.objects.all().filter(teams__curr_players__first_name="Sophia").order_by('id')
+						<p><strong>23. Todas las ligas con un jugador(actual) llamado "Sophia" </strong> | League.objects.all().filter(teams__curr_players__first_name="Sophia").order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentythree" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentythree" data-bs-parent="#accordionFlushExample">
@@ -378,7 +381,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentyfour">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentyfour" aria-expanded="false" aria-controls="flush-collapsetwentyfour">
-						<strong>24. Todos con el apellido "Flores" que NO(actualmente) juegan para los Washington Roughriders </strong> | Player.objects.all().filter(last_name="Flores").exclude(Q(curr_team__location="Washington") & Q(curr_team__team_name="Roughriders"))
+						<p><strong>24. Todos con el apellido "Flores" que NO(actualmente) juegan para los Washington Roughriders </strong> | Player.objects.all().filter(last_name="Flores").exclude(Q(curr_team__location="Washington") & Q(curr_team__team_name="Roughriders"))</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentyfour" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentyfour" data-bs-parent="#accordionFlushExample">
@@ -394,7 +397,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentyfive">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentyfive" aria-expanded="false" aria-controls="flush-collapsetwentyfive">
-						<strong>25. Todos los equipos, pasados y presentes, con los que Samuel Evans ha jugado </strong> | Team.objects.all().filter(Q(all_players__first_name="Samuel") & Q(all_players__last_name="Evans")).order_by('id')
+						<p><strong>25. Todos los equipos, pasados y presentes, con los que Samuel Evans ha jugado </strong> | Team.objects.all().filter(Q(all_players__first_name="Samuel") & Q(all_players__last_name="Evans")).order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentyfive" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentyfive" data-bs-parent="#accordionFlushExample">
@@ -410,7 +413,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentysix">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentysix" aria-expanded="false" aria-controls="flush-collapsetwentysix">
-						<strong>26. Todos los jugadores, pasados y presentes, con los gatos tigre de Manitoba </strong> | Player.objects.all().filter(Q(all_teams__location="Manitoba") & Q(all_teams__team_name="Tiger-Cats")).order_by('id')
+						<p><strong>26. Todos los jugadores, pasados y presentes, con los gatos tigre de Manitoba </strong> | Player.objects.all().filter(Q(all_teams__location="Manitoba") & Q(all_teams__team_name="Tiger-Cats")).order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentysix" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentysix" data-bs-parent="#accordionFlushExample">
@@ -426,7 +429,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentyseven">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentyseven" aria-expanded="false" aria-controls="flush-collapsetwentyseven">
-						<strong>27. Todos los jugadores que anteriormente estaban(pero que no lo están) con los Wichita Vikings </strong> | Player.objects.all().filter(Q(all_teams__location="Wichita") & Q(all_teams__team_name="Vikings")).exclude(Q(curr_team__location="Wichita") & Q(curr_team__team_name="Vikings")).order_by('id')
+						<p><strong>27. Todos los jugadores que anteriormente estaban(pero que no lo están) con los Wichita Vikings </strong> | Player.objects.all().filter(Q(all_teams__location="Wichita") & Q(all_teams__team_name="Vikings")).exclude(Q(curr_team__location="Wichita") & Q(curr_team__team_name="Vikings")).order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentyseven" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentyseven" data-bs-parent="#accordionFlushExample">
@@ -442,7 +445,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingtwentynine">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwentynine" aria-expanded="false" aria-controls="flush-collapsetwentynine">
-						<strong>28. cada equipo para el que Jacob Gray jugó antes de unirse a los Oregon Colts </strong> | Player.objects.all().filter(Q(all_teams__location="Wichita") & Q(all_teams__team_name="Vikings")).exclude(Q(curr_team__location="Wichita") & Q(curr_team__team_name="Vikings")).order_by('id')
+						<p><strong>28. Cada equipo para el que Jacob Gray jugó antes de unirse a los Oregon Colts </strong> | Player.objects.all().filter(Q(all_teams__location="Wichita") & Q(all_teams__team_name="Vikings")).exclude(Q(curr_team__location="Wichita") & Q(curr_team__team_name="Vikings")).order_by('id')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsetwentynine" class="accordion-collapse collapse" aria-labelledby="flush-headingtwentynine" data-bs-parent="#accordionFlushExample">
@@ -458,7 +461,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingthirty">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethirty" aria-expanded="false" aria-controls="flush-collapsethirty">
-						<strong>29. Todos llamados "Joshua" que alguna vez han jugado en la Federación Atlántica de Jugadores de Béisbol Amateur </strong> | Player.objects.all().filter(all_teams__league__name="Atlantic Federation of Amateur Baseball Players", first_name='Joshua').exclude(curr_team__league__name="Atlantic Federation of Amateur Baseball Players")
+						<p><strong>29. Todos llamados "Joshua" que alguna vez han jugado en la Federación Atlántica de Jugadores de Béisbol Amateur </strong> | Player.objects.all().filter(all_teams__league__name="Atlantic Federation of Amateur Baseball Players", first_name='Joshua').exclude(curr_team__league__name="Atlantic Federation of Amateur Baseball Players")</p>
 					</button>
 					</h2>
 					<div id="flush-collapsethirty" class="accordion-collapse collapse" aria-labelledby="flush-headingthirty" data-bs-parent="#accordionFlushExample">
@@ -474,7 +477,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingthirtyone">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethirtyone" aria-expanded="false" aria-controls="flush-collapsethirtyone">
-						<strong>30. Todos los equipos que han tenido 12 o más jugadores, pasados y presentes </strong> | Team.objects.all().annotate(cantidad=Count("all_players")).filter(cantidad__gte=12).order_by('cantidad')
+						<p><strong>30. Todos los equipos que han tenido 12 o más jugadores, pasados y presentes </strong> | Team.objects.all().annotate(cantidad=Count("all_players")).filter(cantidad__gte=12).order_by('cantidad')</p>
 					</button>
 					</h2>
 					<div id="flush-collapsethirtyone" class="accordion-collapse collapse" aria-labelledby="flush-headingthirtyone" data-bs-parent="#accordionFlushExample">
@@ -490,7 +493,7 @@
 				<div class="accordion-item border border-success ">
 					<h2 class="accordion-header" id="flush-headingthirtytwo">
 					<button class="accordion-button collapsed bg-success p-2 text-dark bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethirtytwo" aria-expanded="false" aria-controls="flush-collapsethirtytwo">
-						<strong>31. Todos los jugadores y el número de equipos para los que jugó, ordenados por la cantidad de equipos para los que han jugado </strong> | Player.objects.annotate(cantidad=Count("all_teams")).order_by("-cantidad"),
+						<p><strong>31. Todos los jugadores y el número de equipos para los que jugó, ordenados por la cantidad de equipos para los que han jugado </strong> | Player.objects.annotate(cantidad=Count("all_teams")).order_by("-cantidad")</p>
 					</button>
 					</h2>
 					<div id="flush-collapsethirtytwo" class="accordion-collapse collapse" aria-labelledby="flush-headingthirtytwo" data-bs-parent="#accordionFlushExample">
@@ -505,42 +508,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-		<h1>Leagues</h1>
-		<ol>
-			{% for league in leagues %}
-				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No leagues found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>Teams</h1>
-		<ol>
-			{% for team in teams %}
-				<li> {{team.location}} {{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>Players</h1>
-		<ol>
-			{% for player in players %}
-				<li>{{player.first_name}} {{player.last_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	</body>
 </html>
